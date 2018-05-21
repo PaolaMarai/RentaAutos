@@ -11,14 +11,14 @@ package sgrv.domain;
 public class Vehiculo {
     private int numMotor;
     private String tipo;
-    private int numPasajeros;
-    private int numCilindros;
-    private double precio;
     private String marca;
     private double kilometraje;
     private String color;
     private String modelo;
     private String matricula;
+    private int numPasajeros;
+    private int numCilindros;
+    private double precio;
     private String estado;
 
     public Vehiculo(int numMotor, String tipo, int numPasajeros, int numCilindros, double precio, String marca, double kilometraje, String color, String modelo, String matricula) {

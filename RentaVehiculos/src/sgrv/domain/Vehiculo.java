@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package sgrv.domain;
-
-import java.util.logging.Logger;
-
 /**
  *
  * @author marai

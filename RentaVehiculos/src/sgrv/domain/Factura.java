@@ -13,12 +13,15 @@ public class Factura {
     private int numFactura;
     private String fechaFactura;
     private String fechaVencimiento;
+    private String comentarios;
 
-    public Factura(int numFactura, String fechaFactura, String fechaVencimiento) {
+    public Factura(int numFactura, String fechaFactura, String fechaVencimiento, String comentarios) {
         this.numFactura = numFactura;
         this.fechaFactura = fechaFactura;
         this.fechaVencimiento = fechaVencimiento;
+        this.comentarios = comentarios;
     }
+
 
     public int getNumFactura() {
         return numFactura;
@@ -42,6 +45,14 @@ public class Factura {
 
     public void setFechaVencimiento(String fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
+    }
+
+    public String getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(String comentarios) {
+        this.comentarios = comentarios;
     }
     
 }

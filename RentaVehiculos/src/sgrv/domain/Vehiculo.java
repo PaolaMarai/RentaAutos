@@ -12,16 +12,16 @@ public class Vehiculo {
     private int numMotor;
     private String tipo;
     private String marca;
-    private double kilometraje;
+    private float kilometraje;
     private String color;
     private String modelo;
     private String matricula;
     private int numPasajeros;
     private int numCilindros;
-    private double precio;
+    private float precio;
     private String estado;
 
-    public Vehiculo(int numMotor, String tipo, int numPasajeros, int numCilindros, double precio, String marca, double kilometraje, String color, String modelo, String matricula) {
+    public Vehiculo(int numMotor, String tipo, int numPasajeros, int numCilindros, float precio, String marca, float kilometraje, String color, String modelo, String matricula) {
         this.numMotor = numMotor;
         this.tipo = tipo;
         this.numPasajeros = numPasajeros;
@@ -52,7 +52,7 @@ public class Vehiculo {
         this.numCilindros = numCilindros;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 
@@ -60,7 +60,7 @@ public class Vehiculo {
         this.marca = marca;
     }
 
-    public void setKilometraje(double kilometraje) {
+    public void setKilometraje(float kilometraje) {
         this.kilometraje = kilometraje;
     }
 
@@ -92,7 +92,7 @@ public class Vehiculo {
         return numCilindros;
     }
 
-    public double getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
@@ -100,7 +100,7 @@ public class Vehiculo {
         return marca;
     }
 
-    public double getKilometraje() {
+    public float getKilometraje() {
         return kilometraje;
     }
 

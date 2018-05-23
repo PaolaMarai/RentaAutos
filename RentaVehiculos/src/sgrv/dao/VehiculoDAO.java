@@ -25,17 +25,27 @@ public class VehiculoDAO implements IVehiculoDAO{
     private ArrayList<Vehiculo> listaVehiculos;
     private String query;
     private Connection connection;
-    
+        
     @Override
     public void agregarVehiculo(Vehiculo vehiculo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        query = "INSERT INTO vehiculos (numMotor, tipo, matricula, modelo, kilometraje, marca, color, numPasajeros, numCilindros, estado, precio, Pedidos_nomPedido, Bodegas_idBodega) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ,?, 0, 1 )";
+        query="INSERT INTO vehiculos(numMotor, tipo, matricula, modelo, kilometraje, marca, color, numPasajeros, numCilindros, estado, precio, Pedidos_nomPedido, Bodegas_idBodega) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
             statement.setInt(1, vehiculo.getNumMotor());
-            statement.setString(2, vehiculo.getTipo());
-            /****TODO**/
+            statement.setString(2, "%"+vehiculo.getTipo()+"%");
+            statement.setString(3, "%"+vehiculo.getMatricula()+"%");
+            statement.setString(4, "%"+vehiculo.getModelo()+"%");
+            statement.setFloat(5, vehiculo.getKilometraje());
+            statement.setString(6, "%"+vehiculo.getMarca()+"%");
+            statement.setString(7, "%"+vehiculo.getColor()+"%");
+            statement.setInt(8, vehiculo.getNumPasajeros());
+            statement.setInt(9, vehiculo.getNumCilindros());
+            statement.setString(10, "%"+vehiculo.getEstado()+"%");
+            statement.setFloat(11, vehiculo.getPrecio());
+            statement.setInt(12, 1);
+            statement.setInt(13, 1);
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(VehiculoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{

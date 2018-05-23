@@ -5,38 +5,19 @@
  */
 package sgrv.gui;
 import java.awt.*;
+import java.sql.Statement;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Cesar Diaz
  */
 public class Consultar extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Consultar
-     */
+    
+    
     public Consultar() {
         initComponents();
     }
 
-    public void mostrarTabal(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        modelo.addColumn("Marca");
-        modelo.addColumn("Modelo");
-        modelo.addColumn("Color");
-        modelo.addColumn("Tipo");
-        modelo.addColumn("Precio");
-        modelo.addColumn("Num. Pasajeros");
-        modelo.addColumn("Num. Cilindros");
-        tablaDatos.setModel(modelo);
-        
-        String sql = "SELECT * FROM usuario";
-        
-       /* String datos[]= new String [4];
-        Statment st= cn.creatStatement();
-        ResultSet rs = st.*/
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

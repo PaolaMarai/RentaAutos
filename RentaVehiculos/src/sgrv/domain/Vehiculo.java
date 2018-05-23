@@ -20,6 +20,7 @@ public class Vehiculo {
     private int numCilindros;
     private float precio;
     private String estado;
+    private String locacion;
 
     public Vehiculo(int numMotor, String tipo, int numPasajeros, int numCilindros, float precio, String marca, float kilometraje, String color, String modelo, String matricula) {
         this.numMotor = numMotor;
@@ -35,7 +36,18 @@ public class Vehiculo {
         estado="Disponible";
     }
 
+    public Vehiculo(int numMotor, String tipo, String marca, int numPasajeros, float precio, String locacion) {
+        this.numMotor = numMotor;
+        this.tipo = tipo;
+        this.marca = marca;
+        this.numPasajeros = numPasajeros;
+        this.precio = precio;
+        this.locacion = locacion;
+    }
 
+    public Vehiculo() {
+    }
+    
     public void setNumMotor(int numMotor) {
         this.numMotor = numMotor;
     }
@@ -123,5 +135,13 @@ public class Vehiculo {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
+    public String getLocacion() {
+        return locacion;
+    }
+
+    public void setLocacion(String locacion) {
+        this.locacion = locacion;
+    }
+
 }

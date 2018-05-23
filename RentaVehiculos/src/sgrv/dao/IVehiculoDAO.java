@@ -19,7 +19,7 @@ public interface IVehiculoDAO {
     List<Vehiculo> obtenerPorTipo(String tipo);
     List<Vehiculo> obtenerPorModelo(String modelo);
     List<Vehiculo> obtenerPorColor(String color);
-    List<Vehiculo> obtenerPorPrecio(String precio);
-    List<Vehiculo> obtenerPorNoCilindros(String cilindros);
-    List<Vehiculo> obtenerPorNoPasajeros(String pasajeros);
+    List<Vehiculo> obtenerPorPrecio(float precio);
+    List<Vehiculo> obtenerPorNoCilindros(int cilindros);
+    List<Vehiculo> obtenerPorNoPasajeros(int pasajeros);
 }

@@ -11,17 +11,15 @@ package sgrv.domain;
  */
 public class Pedido {
    private int numPedido;
-   private double iva;
-   private double descuento;
-   private double precioFinal;
    private String fecha;
+   private double precioFinal;
+   private double iva;
 
-    public Pedido(int numPedido, double iva, double descuento, double precioFinal, String fecha) {
+    public Pedido(int numPedido, double iva, double precioFinal, String fecha) {
         this.numPedido = numPedido;
-        this.iva = iva;
-        this.descuento = descuento;
-        this.precioFinal = precioFinal;
         this.fecha = fecha;
+        this.precioFinal = precioFinal;
+        this.iva = iva;
     }
 
     public void setNumPedido(int numPedido) {
@@ -30,10 +28,6 @@ public class Pedido {
 
     public void setIva(double iva) {
         this.iva = iva;
-    }
-
-    public void setDescuento(double descuento) {
-        this.descuento = descuento;
     }
 
     public void setPrecioFinal(double precioFinal) {
@@ -52,17 +46,11 @@ public class Pedido {
         return iva;
     }
 
-    public double getDescuento() {
-        return descuento;
-    }
-
     public double getPrecioFinal() {
         return precioFinal;
     }
 
     public String getFecha() {
         return fecha;
-    }
-   
-   
+    }  
 }

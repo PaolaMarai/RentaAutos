@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package sgrv.gui;
-
+import java.awt.*;
+import javax.swing.*;
 /**
  *
  * @author Cesar Diaz

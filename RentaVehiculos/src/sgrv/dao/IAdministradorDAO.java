@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package sgrv.dao;
-
+import  sgrv.domain.Administrador;
 /**
  *
- * @author Cesar Diaz
+ * @author marai
  */
-public class BodegaDAO {
-    
+public interface IAdministradorDAO {
+    Administrador compruebaAdministrador(String correo);
 }

@@ -20,6 +20,10 @@ public class Administrador {
         this.correo = correo;
     }
 
+    public Administrador() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getNumPersonal() {
         return numPersonal;
     }

@@ -6,14 +6,14 @@
 package sgrv.mysql.dao;
 
 import java.util.List;
-import sgrv.dao.VehiculoDAO;
 import sgrv.domain.Vehiculo;
+import sgrv.dao.IVehiculoDAO;
 
 /**
  *
  * @author Cesar Diaz
  */
-public class MySQLVehiculoDAO implements VehiculoDAO{
+public class MySQLVehiculoDAO implements IVehiculoDAO{
 
     @Override
     public void insertar(Vehiculo a) {

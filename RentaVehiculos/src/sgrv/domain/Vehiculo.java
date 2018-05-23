@@ -22,9 +22,6 @@ public class Vehiculo {
     private String estado;
     private String locacion;
 
-    public Vehiculo(){
-        
-    }
     
     public Vehiculo(int numMotor, String tipo, int numPasajeros, int numCilindros, float precio, String marca, float kilometraje, String color, String modelo, String matricula) {
         this.numMotor = numMotor;
@@ -49,8 +46,6 @@ public class Vehiculo {
         this.locacion = locacion;
     }
 
-    public Vehiculo() {
-    }
     
     public void setNumMotor(int numMotor) {
         this.numMotor = numMotor;

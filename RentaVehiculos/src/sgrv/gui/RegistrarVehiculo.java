@@ -21,43 +21,43 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private boolean validarDatos(){
         
      if(this.txtnumMotor.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this,"Ingrese valores numericos");
+         JOptionPane.showMessageDialog(this,"Ingrese valores en todos los campos");
          return false;
      }
      if(this.txtMatricula.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores alfanumericos");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      if(this.txtMarca.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese caracteres");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      if(this.txtModelo.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese caracteres");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      if(this.txtKilo.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores numericos");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      if(this.txtPrecio.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores numericos");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      if(this.txtColor.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese caracteres");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      if(txtTipo.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese caracteres");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      if(txtnumPasajeros.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores numericos");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      if(txtnumCilindros.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores numericos");
+         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
          return false;
      }
      
@@ -316,7 +316,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private void botRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botRegistrarActionPerformed
         if(validarDatos()){
             VehiculoDAO veh= new VehiculoDAO();
-            
+            try{
             int numMotor=Integer.parseInt(txtnumMotor.getText()); 
             String tipo =txtTipo.getText(); 
             int numPasajeros=Integer.parseInt(txtnumPasajeros.getText()); 
@@ -330,6 +330,9 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
             
             Vehiculo v1= new Vehiculo(numMotor, tipo,numPasajeros, numCilindros, precio, marca, kilo, color, modelo, matricula);
             veh.agregarVehiculo(v1);
+            }catch(NullPointerException e){
+                System.out.println("Error en agregar");
+            }
         }
     }//GEN-LAST:event_botRegistrarActionPerformed
 
@@ -348,7 +351,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
 
     private void txtKiloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKiloKeyTyped
         char c = evt.getKeyChar();
-        if(c<'0'|| c>'9') evt.consume();
+        if((c<'0'|| c>'9')&&(c!='.')) evt.consume();
     }//GEN-LAST:event_txtKiloKeyTyped
 
     private void txtnumPasajerosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnumPasajerosKeyTyped
@@ -367,7 +370,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
 
     private void txtMatriculaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMatriculaKeyTyped
         char c = evt.getKeyChar();
-        if((c<'0'|| c>'9')&&(c<'A'|| c>'Z')) evt.consume();
+        if((c<'0'|| c>'9')&&(c<'A'|| c>'Z')&&(c!='-')) evt.consume();
     }//GEN-LAST:event_txtMatriculaKeyTyped
 
     private void txtMarcaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMarcaKeyTyped
@@ -392,7 +395,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
 
     private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
         char c = evt.getKeyChar();
-        if(c<'0'|| c>'9') evt.consume();
+        if((c<'0'|| c>'9')&&(c!='.')) evt.consume();
     }//GEN-LAST:event_txtPrecioKeyTyped
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         

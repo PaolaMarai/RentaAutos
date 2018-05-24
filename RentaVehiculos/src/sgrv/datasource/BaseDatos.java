@@ -11,11 +11,11 @@ public class BaseDatos {
     
     private static void makeConnection(){
         try {
-            String url= "jdbc:mysql://localhost/rentabd";
+            String url= "jdbc:mysql://localhost:3306/rentabd";
             String userName = "paola";
             String password = "passpao";
        
-            conexion = (Connection)DriverManager.getConnection(url,userName,password);
+            conexion = (Connection)DriverManager.getConnection(url, userName, password);
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -37,8 +37,4 @@ public class BaseDatos {
             }
         }
     }
-
-     public static void main(String args[]){
-     makeConnection();
-}
 }

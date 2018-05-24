@@ -10,5 +10,5 @@ import  sgrv.domain.Administrador;
  * @author marai
  */
 public interface IAdministradorDAO {
-    Administrador compruebaAdministrador(String correo);
+    Administrador obtenerAdministrador(String correo);
 }

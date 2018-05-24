@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sgrv.dao;
 
 import java.sql.Connection;
@@ -21,17 +16,14 @@ import sgrv.datasource.BaseDatos;
  * @author marai
  */
 public class VehiculoDAO implements IVehiculoDAO{
-
-    public static void agregarVehiculo(VehiculoDAO v) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     private ArrayList<Vehiculo> listaVehiculos;
     private String query;
     private Connection connection;
         
     @Override
     public void agregarVehiculo(Vehiculo vehiculo) {
-        query="INSERT INTO vehiculos(numMotor, tipo, matricula, modelo, kilometraje, marca, color, numPasajeos, numCilindros, estado, precio, Pedidos_nomPedido, Bodegas_idBodega) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        query="INSERT INTO vehiculos(numMotor, tipo, matricula, modelo, kilometraje, marca, color, numPasajeos, numCilindros, estado, precio, Bodegas_idBodega) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
@@ -47,7 +39,6 @@ public class VehiculoDAO implements IVehiculoDAO{
             statement.setString(10, "%"+vehiculo.getEstado()+"%");
             statement.setFloat(11, vehiculo.getPrecio());
             statement.setInt(12, 1);
-            statement.setInt(13, 1);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(VehiculoDAO.class.getName()).log(Level.SEVERE, null, ex);

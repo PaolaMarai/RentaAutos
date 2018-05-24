@@ -17,8 +17,6 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     public RegistrarVehiculo() {
         initComponents();
     }
-
-<<<<<<< HEAD
     
     private boolean validarDatos(){
         
@@ -67,9 +65,6 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
      return true;
     }
     
-=======
->>>>>>> 80065c5b2be3e6b1104133966795433319117439
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -91,12 +86,14 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
         txtTipo = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
         botRegistrar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botCancelar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txtnumPasajeros = new javax.swing.JTextField();
         txtnumCilindros = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtEstado = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(525, 380));
 
@@ -181,10 +178,10 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botCancelar.setText("Cancelar");
+        botCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botCancelarActionPerformed(evt);
             }
         });
 
@@ -207,13 +204,21 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel13.setText("Estado:");
+
+        txtEstado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEstadoKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(botCancelar)
                 .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,29 +250,36 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtnumMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(botRegistrar)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
+                                .addGap(0, 1, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(botRegistrar)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtPrecio))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtnumPasajeros))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtnumCilindros))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPrecio))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtnumPasajeros))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtnumCilindros))))
+                                .addComponent(txtEstado))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addComponent(jLabel10)))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addGap(107, 107, 107))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +315,9 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtKilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtKilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -311,22 +325,23 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botRegistrar)
-                    .addComponent(jButton2))
+                    .addComponent(botCancelar))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-    
     private void botRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botRegistrarActionPerformed
-        
+        if(validarDatos()){
+            VehiculoDAO veh= new VehiculoDAO();
+            veh.agregarVehiculo(txtnumMotor.getText(), txtTipo.getText(), txtMatricula.getText(), txtModelo.getText(), txtKilo.getText(), txtMarca.getText(), txtColor.getText(), txtnumPasajeros.getText(), txtnumCilindros.getText(), txtEstado.getText(), txtPrecio.getText(),1,1);
+        }
     }//GEN-LAST:event_botRegistrarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCancelarActionPerformed
       this.dispose();  
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botCancelarActionPerformed
 
     private void txtnumMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumMotorActionPerformed
         // TODO add your handling code here:
@@ -385,21 +400,24 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
         char c = evt.getKeyChar();
         if(c<'0'|| c>'9') evt.consume();
     }//GEN-LAST:event_txtPrecioKeyTyped
-=======
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VehiculoDAO v= new VehiculoDAO();
-        VehiculoDAO.agregarVehiculo(v);
         
     }//GEN-LAST:event_jButton1ActionPerformed
->>>>>>> 80065c5b2be3e6b1104133966795433319117439
+
+    private void txtEstadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstadoKeyTyped
+        char c = evt.getKeyChar();
+        if((c<'A'|| c>'Z')&& (c<'a'||c>'z')) evt.consume();
+    }//GEN-LAST:event_txtEstadoKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botCancelar;
     private javax.swing.JButton botRegistrar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -409,6 +427,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtKilo;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtMatricula;

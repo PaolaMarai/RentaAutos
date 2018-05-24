@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class BaseDatos {
      private static Connection conexion;    
-    
+     
     private static void makeConnection(){
         try {
             String url= "jdbc:mysql://localhost:3306/rentabd";

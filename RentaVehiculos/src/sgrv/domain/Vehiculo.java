@@ -46,6 +46,9 @@ public class Vehiculo {
         this.locacion = locacion;
     }
 
+    public Vehiculo(){
+        
+    }
     
     public void setNumMotor(int numMotor) {
         this.numMotor = numMotor;

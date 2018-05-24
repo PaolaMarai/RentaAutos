@@ -92,8 +92,6 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         txtnumPasajeros = new javax.swing.JTextField();
         txtnumCilindros = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txtEstado = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(525, 380));
 
@@ -204,14 +202,6 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel13.setText("Estado:");
-
-        txtEstado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtEstadoKeyTyped(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -250,32 +240,25 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtnumMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(18, 19, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(botRegistrar)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 1, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(botRegistrar)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtPrecio))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtnumPasajeros))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtnumCilindros))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel13)
+                                .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtEstado))))
+                                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPrecio))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtnumPasajeros))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtnumCilindros))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addComponent(jLabel10)))
@@ -315,9 +298,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtKilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtKilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -335,7 +316,20 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private void botRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botRegistrarActionPerformed
         if(validarDatos()){
             VehiculoDAO veh= new VehiculoDAO();
-            veh.agregarVehiculo(txtnumMotor.getText(), txtTipo.getText(), txtMatricula.getText(), txtModelo.getText(), txtKilo.getText(), txtMarca.getText(), txtColor.getText(), txtnumPasajeros.getText(), txtnumCilindros.getText(), txtEstado.getText(), txtPrecio.getText(),1,1);
+            
+            int numMotor=Integer.parseInt(txtnumMotor.getText()); 
+            String tipo =txtTipo.getText(); 
+            int numPasajeros=Integer.parseInt(txtnumPasajeros.getText()); 
+            int numCilindros=Integer.parseInt(txtnumCilindros.getText()); 
+            float precio=Float.parseFloat(txtPrecio.getText());
+            String marca=txtMarca.getText();
+            float kilo=Float.parseFloat(txtKilo.getText()); 
+            String color=txtColor.getText();
+            String modelo=txtModelo.getText(); 
+            String matricula=txtMatricula.getText();
+            
+            Vehiculo v1= new Vehiculo(numMotor, tipo,numPasajeros, numCilindros, precio, marca, kilo, color, modelo, matricula);
+            veh.agregarVehiculo(v1);
         }
     }//GEN-LAST:event_botRegistrarActionPerformed
 
@@ -404,11 +398,6 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtEstadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstadoKeyTyped
-        char c = evt.getKeyChar();
-        if((c<'A'|| c>'Z')&& (c<'a'||c>'z')) evt.consume();
-    }//GEN-LAST:event_txtEstadoKeyTyped
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botCancelar;
@@ -417,7 +406,6 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -427,7 +415,6 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtColor;
-    private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtKilo;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtMatricula;

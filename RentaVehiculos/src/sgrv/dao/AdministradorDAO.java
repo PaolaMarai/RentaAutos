@@ -21,12 +21,11 @@ import sgrv.domain.Usuario;
  * @author marai
  */
 public class AdministradorDAO implements IAdministradorDAO{
-    Administrador admin;
-    private String query;
-    private Connection connection;
-   
+
     @Override
-    public Administrador compruebaAdministrador(String correo) {
-        return null;
+    public Administrador obtenerAdministrador(String correo) {
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }

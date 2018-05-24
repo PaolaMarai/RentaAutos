@@ -7,36 +7,38 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BaseDatos {
-     private static Connection connection;    
+     private static Connection conexion;    
     
     private static void makeConnection(){
         try {
-            
-            String url= "jdbc:mysql://localhost/";
-            String databaseName = "rebtaBD";
-            String userName = "root";
-            String password = "zS16011716.";
+            String url= "jdbc:mysql://localhost/rentabd";
+            String userName = "paola";
+            String password = "passpao";
        
-            connection = (Connection)DriverManager.getConnection(url+databaseName,userName,password);
+            conexion = (Connection)DriverManager.getConnection(url,userName,password);
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
     public static Connection getDataBaseConnection() {        
         makeConnection();
-        return BaseDatos.connection;
+        return BaseDatos.conexion;
  
     }
     
     public static void closeConnection(){
-        if(connection!=null){
+        if(conexion!=null){
             try {
-                if(!connection.isClosed()){
-                    connection.close();                
+                if(!conexion.isClosed()){
+                    conexion.close();                
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
+
+     public static void main(String args[]){
+     makeConnection();
+}
 }

@@ -5,7 +5,6 @@
  */
 package sgrv.dao;
 
-import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +21,10 @@ import sgrv.datasource.BaseDatos;
  * @author marai
  */
 public class VehiculoDAO implements IVehiculoDAO{
+
+    public static void agregarVehiculo(VehiculoDAO v) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private ArrayList<Vehiculo> listaVehiculos;
     private String query;
     private Connection connection;

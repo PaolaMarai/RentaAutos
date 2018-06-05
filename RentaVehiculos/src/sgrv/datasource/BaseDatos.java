@@ -12,8 +12,8 @@ public class BaseDatos {
     private static void makeConnection(){
         try {
             String url= "jdbc:mysql://localhost:3306/rentabd";
-            String userName = "paola";
-            String password = "passpao";
+            String userName = "root";
+            String password = "";
        
             conexion = (Connection)DriverManager.getConnection(url, userName, password);
         } catch (SQLException ex) {

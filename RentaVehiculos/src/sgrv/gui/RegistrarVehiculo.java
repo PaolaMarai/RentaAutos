@@ -331,7 +331,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
             Vehiculo v1= new Vehiculo(numMotor, tipo,numPasajeros, numCilindros, precio, marca, kilo, color, modelo, matricula);
             veh.agregarVehiculo(v1);
             }catch(NullPointerException e){
-                System.out.println("Error en agregar");
+                System.out.println(e);
             }
         }
     }//GEN-LAST:event_botRegistrarActionPerformed

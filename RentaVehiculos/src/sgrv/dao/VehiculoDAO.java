@@ -28,7 +28,7 @@ public class VehiculoDAO implements IVehiculoDAO{
         try {
             PreparedStatement statement=connection.prepareStatement(query);
             statement.setInt(1, vehiculo.getNumMotor());
-            statement.setString(2, "%"+vehiculo.getTipo()+"%");
+            statement.setString(2, vehiculo.getTipo());
             statement.setString(3, "%"+vehiculo.getMatricula()+"%");
             statement.setString(4, "%"+vehiculo.getModelo()+"%");
             statement.setFloat(5, vehiculo.getKilometraje());

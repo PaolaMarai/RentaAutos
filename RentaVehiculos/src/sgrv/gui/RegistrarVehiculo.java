@@ -22,50 +22,52 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private boolean validarDatos(){
         
      if(this.txtnumMotor.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this,"Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(this.txtMatricula.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(this.txtMarca.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(this.txtModelo.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(this.txtKilo.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(this.txtPrecio.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(this.txtColor.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(txtTipo.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(txtnumPasajeros.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      if(txtnumCilindros.getText().isEmpty()){
-         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+         errorMensaje();
          return false;
      }
      
      
      return true;
     }
-    
+    public void errorMensaje(){
+        JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -431,6 +433,10 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void Alert() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private JOptionPane JOptionPane() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

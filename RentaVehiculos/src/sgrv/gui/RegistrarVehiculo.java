@@ -5,6 +5,7 @@
  */
 package sgrv.gui;
 
+import javafx.scene.control.Alert;
 import javax.swing.JOptionPane;
 import sgrv.dao.VehiculoDAO;
 import sgrv.domain.Vehiculo;
@@ -428,4 +429,10 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtnumMotor;
     private javax.swing.JTextField txtnumPasajeros;
     // End of variables declaration//GEN-END:variables
+
+    private void Alert() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

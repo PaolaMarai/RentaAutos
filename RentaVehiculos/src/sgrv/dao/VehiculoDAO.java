@@ -56,7 +56,7 @@ public class VehiculoDAO implements IVehiculoDAO{
             PreparedStatement statement=connection.prepareStatement(query);
             ResultSet result=statement.executeQuery();
             while(result.next()){
-                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("ciudad"));
+                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("direccion"));
                 listaVehiculos.add(vehiculo);
             }
         } catch (SQLException ex) {
@@ -77,7 +77,7 @@ public class VehiculoDAO implements IVehiculoDAO{
             statement.setString(1, marca);
             ResultSet result=statement.executeQuery();
             while(result.next()){
-                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("ciudad"));
+                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("direccion"));
                 listaVehiculos.add(vehiculo);
             }
         } catch (SQLException ex) {
@@ -98,7 +98,7 @@ public class VehiculoDAO implements IVehiculoDAO{
             statement.setString(1, tipo);
             ResultSet result=statement.executeQuery();
             while(result.next()){
-                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("ciudad"));
+                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("direccion"));
                 listaVehiculos.add(vehiculo);
             }
         } catch (SQLException ex) {
@@ -119,7 +119,7 @@ public class VehiculoDAO implements IVehiculoDAO{
             statement.setString(1, modelo);
             ResultSet result=statement.executeQuery();
             while(result.next()){
-                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("ciudad"));
+                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("direccion"));
                 listaVehiculos.add(vehiculo);
             }
         } catch (SQLException ex) {
@@ -140,7 +140,7 @@ public class VehiculoDAO implements IVehiculoDAO{
             statement.setString(1, color);
             ResultSet result=statement.executeQuery();
             while(result.next()){
-                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("ciudad"));
+                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("direccion"));
                 listaVehiculos.add(vehiculo);
             }
         } catch (SQLException ex) {
@@ -161,7 +161,7 @@ public class VehiculoDAO implements IVehiculoDAO{
             statement.setFloat(1, precio);
             ResultSet result=statement.executeQuery();
             while(result.next()){
-                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("ciudad"));
+                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("direccion"));
                 listaVehiculos.add(vehiculo);
             }
         } catch (SQLException ex) {
@@ -182,7 +182,7 @@ public class VehiculoDAO implements IVehiculoDAO{
             statement.setInt(1, cilindros);
             ResultSet result=statement.executeQuery();
             while(result.next()){
-                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("ciudad"));
+                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("direccion"));
                 listaVehiculos.add(vehiculo);
             }
         } catch (SQLException ex) {
@@ -203,7 +203,7 @@ public class VehiculoDAO implements IVehiculoDAO{
             statement.setInt(1, pasajeros);
             ResultSet result=statement.executeQuery();
             while(result.next()){
-                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("ciudad"));
+                Vehiculo vehiculo = new Vehiculo(result.getInt("numMotor"), result.getString("tipo"), result.getString("marca"), result.getInt("numPasajeos"), result.getFloat("precio"),result.getString("direccion"));
                 listaVehiculos.add(vehiculo);
             }
         } catch (SQLException ex) {

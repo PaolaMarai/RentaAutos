@@ -1,7 +1,11 @@
 
 package sgrv.gui;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import sgrv.dao.VehiculoDAO;
+import sgrv.domain.Vehiculo;
 
 /**
  *
@@ -28,13 +32,13 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
         jTablaResultados = new javax.swing.JTable();
         jFiltrosCB = new javax.swing.JComboBox<>();
 
-        setPreferredSize(new java.awt.Dimension(525, 380));
-        setVisible(true);
+        setPreferredSize(new java.awt.Dimension(720, 480));
+        setVisible(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Consulta Vehiculos");
 
-        botonFiltrar.setText("jFiltrar");
+        botonFiltrar.setText("Filtrar");
         botonFiltrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonFiltrarActionPerformed(evt);
@@ -53,11 +57,11 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "No. Motor", "Tipo", "Matricula", "Modelo", "Kilometraje", "Marca", "Color", "Pasajeros", "Cilindros", "Precio (dia)"
+                "No. Motor", "Tipo", "Modelo", "Marca", "Color", "No. Pasajeros", "Precio (dia)", "Direccion"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -79,26 +83,23 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jFiltrosCB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jParametro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonFiltrar)
-                .addGap(174, 174, 174))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addComponent(jLabel1)))
+                .addGap(290, 290, 290)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(165, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jFiltrosCB, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jParametro, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(botonFiltrar)
+                        .addGap(174, 174, 174))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +112,7 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
                     .addComponent(botonFiltrar)
                     .addComponent(jFiltrosCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addGap(6, 6, 6))
@@ -125,8 +126,47 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void botonFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFiltrarActionPerformed
-         
-            
+        VehiculoDAO consulta= new VehiculoDAO();
+        String filtro = jFiltrosCB.getSelectedItem().toString();
+        ArrayList<Vehiculo> listaResultado;
+        if(validarDatos()){
+            if("Tipo".equals(filtro)){
+               String tipo = jParametro.getText();
+               listaResultado = (ArrayList<Vehiculo>)consulta.obtenerPorTipo(tipo);
+               llenarTabla(listaResultado);
+            }
+            if("Modelo".equals(filtro)){
+               String modelo = jParametro.getText();
+               listaResultado = (ArrayList<Vehiculo>)consulta.obtenerPorModelo(modelo);
+               llenarTabla(listaResultado);
+            }
+            if("Marca".equals(filtro)){
+               String marca = jParametro.getText();
+               listaResultado = (ArrayList<Vehiculo>)consulta.obtenerPorMarca(marca);
+               llenarTabla(listaResultado);
+            }
+            if("Color".equals(filtro)){
+               String color = jParametro.getText();
+               listaResultado = (ArrayList<Vehiculo>)consulta.obtenerPorColor(color);
+               llenarTabla(listaResultado);
+            }
+            if("No. Pasajeros".equals(filtro)){
+               int pasajeros = Integer.valueOf(jParametro.getText());
+               
+               listaResultado = (ArrayList<Vehiculo>)consulta.obtenerPorNoPasajeros(pasajeros);
+               llenarTabla(listaResultado);
+            }
+            if("No. Cilindros".equals(filtro)){
+               int cilindros = Integer.valueOf(jParametro.getText());
+               listaResultado = (ArrayList<Vehiculo>)consulta.obtenerPorNoCilindros(cilindros);
+               llenarTabla(listaResultado);
+            }
+            if("Presupuesto".equals(filtro)){
+               float precio = Float.valueOf(jParametro.getText());
+               listaResultado = (ArrayList<Vehiculo>)consulta.obtenerPorPrecio(precio);
+               llenarTabla(listaResultado);
+            }
+        }
     }//GEN-LAST:event_botonFiltrarActionPerformed
 
     private void jFiltrosCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFiltrosCBActionPerformed
@@ -135,11 +175,38 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
    private boolean validarDatos(){
         boolean ret = true;
             if(jParametro.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Ingrese un valor en el panel.");
+            JOptionPane.showMessageDialog(this, "Ingrese un valor");
             ret=false;
             }
         return ret;
     }
+   public void llenarTabla(ArrayList lista){
+       if(! lista.isEmpty()){
+        try{
+            DefaultTableModel modelo = (DefaultTableModel)jTablaResultados.getModel();
+            Object[] fila = new Object[modelo.getColumnCount()];
+            for (int i = 0; i < lista.size(); i++) {
+                Vehiculo vehiculo = (Vehiculo) lista.get(i);
+                fila[0] = vehiculo.getNumMotor();
+                fila[1] = vehiculo.getTipo();
+                fila [2] = vehiculo.getModelo();
+                fila [3] = vehiculo.getMarca();
+                fila [4] = vehiculo.getColor();
+                fila [5] = vehiculo.getNumPasajeros();
+                fila [6] = vehiculo.getPrecio();
+                fila [7] = vehiculo.getLocacion();
+                modelo.addRow(fila);
+               }
+           }catch(NullPointerException e){
+               System.err.print(e);
+           }
+       }
+       else {
+           JOptionPane.showMessageDialog(this, "No existen coincidencias");
+        }
+   }
+   
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonFiltrar;
@@ -150,4 +217,6 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaResultados;
     // End of variables declaration//GEN-END:variables
+
+    
 }

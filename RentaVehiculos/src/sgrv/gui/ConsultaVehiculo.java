@@ -67,7 +67,7 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
         jTablaResultados.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jScrollPane1.setViewportView(jTablaResultados);
 
-        jFiltrosCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Modelo", "Kilometraje", "Marca", "Color", "No. Pasajeros", "No. Cilindros", "Precio" }));
+        jFiltrosCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo", "Modelo", "Marca", "Color", "No. Pasajeros", "No. Cilindros", "Presupuesto" }));
         jFiltrosCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFiltrosCBActionPerformed(evt);

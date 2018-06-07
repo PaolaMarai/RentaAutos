@@ -62,7 +62,8 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
          return false;
      }
      
-     
+     JOptionPane.showMessageDialog(this, "Registro realizado");
+     this.dispose();  
      return true;
     }
     public void errorMensaje(){
@@ -112,7 +113,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Tipo:");
 
-        jLabel9.setText("Precio:");
+        jLabel9.setText("Precio(dia):");
 
         txtnumMotor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,9 +190,9 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Registrar Vehiculo");
 
-        jLabel11.setText("numPasajeros:");
+        jLabel11.setText("No. Pasajeros:");
 
-        jLabel12.setText("Num.Cilindros:");
+        jLabel12.setText("No.Cilindros:");
 
         txtnumPasajeros.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

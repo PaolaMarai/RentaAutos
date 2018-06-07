@@ -50,7 +50,7 @@ public class VehiculoDAO implements IVehiculoDAO{
     @Override
     public List<Vehiculo> obtenerTodos() {
         listaVehiculos= new ArrayList<>();
-        query="select numMotor, tipo,precio, marca, numPasajeos, ciudad from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega";
+        query="select numMotor, tipo, modelo, marca, color, numPasajeos, precio, direccion from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
@@ -70,7 +70,7 @@ public class VehiculoDAO implements IVehiculoDAO{
     @Override
     public List<Vehiculo> obtenerPorMarca(String marca) {
       listaVehiculos= new ArrayList<>();
-        query="select numMotor, tipo,precio, marca, numPasajeos, ciudad from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.marca= ?";
+        query="select numMotor, tipo, modelo, marca, color, numPasajeos, precio, direccion from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.marca= ?";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
@@ -91,7 +91,7 @@ public class VehiculoDAO implements IVehiculoDAO{
     @Override
     public List<Vehiculo> obtenerPorTipo(String tipo) {
    listaVehiculos= new ArrayList<>();
-        query="select numMotor, tipo,precio, marca, numPasajeos, ciudad from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.tipo= ?";
+        query="select numMotor, tipo, modelo, marca, color, numPasajeos, precio, direccion from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.tipo= ?";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
@@ -112,7 +112,7 @@ public class VehiculoDAO implements IVehiculoDAO{
     @Override
     public List<Vehiculo> obtenerPorModelo(String modelo) {
          listaVehiculos= new ArrayList<>();
-        query="select numMotor, tipo,precio, marca, numPasajeos, ciudad from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.modelo= ?";
+        query="select numMotor, tipo, modelo, marca, color, numPasajeos, precio, direccion from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.modelo= ?";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
@@ -133,7 +133,7 @@ public class VehiculoDAO implements IVehiculoDAO{
     @Override
     public List<Vehiculo> obtenerPorColor(String color) {
          listaVehiculos= new ArrayList<>();
-        query="select numMotor, tipo,precio, marca, numPasajeos, ciudad from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.color= ?";
+        query="select numMotor, tipo, modelo, marca, color, numPasajeos, precio, direccion from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.color= ?";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
@@ -154,7 +154,7 @@ public class VehiculoDAO implements IVehiculoDAO{
     @Override
     public List<Vehiculo> obtenerPorPrecio(float precio) {
          listaVehiculos= new ArrayList<>();
-        query="select numMotor, tipo,precio, marca, numPasajeos, ciudad from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.precio <= ?";
+        query="select numMotor, tipo, modelo, marca, color, numPasajeos, precio, direccion from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.precio <= ?";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
@@ -175,7 +175,7 @@ public class VehiculoDAO implements IVehiculoDAO{
     @Override
     public List<Vehiculo> obtenerPorNoCilindros(int cilindros) {
          listaVehiculos= new ArrayList<>();
-        query="select numMotor, tipo,precio, marca, numPasajeos, ciudad from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.numCilindros = ?";
+        query="select numMotor, tipo, modelo, marca, color, numPasajeos, precio, direccion from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.numCilindros = ?";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);
@@ -196,7 +196,7 @@ public class VehiculoDAO implements IVehiculoDAO{
     @Override
     public List<Vehiculo> obtenerPorNoPasajeros(int pasajeros) {
          listaVehiculos= new ArrayList<>();
-        query="select numMotor, tipo,precio, marca, numPasajeos, ciudad from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega and v.numPasajeos <= ?";
+        query="select numMotor, tipo, modelo, marca, color, numPasajeos, precio, direccion from vehiculos v, bodegas b where v.Bodegas_idBodega=b.idBodega AND v.numPasajeos = ?";
         connection=BaseDatos.getDataBaseConnection();
         try {
             PreparedStatement statement=connection.prepareStatement(query);

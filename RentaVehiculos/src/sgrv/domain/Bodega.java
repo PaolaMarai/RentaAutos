@@ -5,6 +5,8 @@
  */
 package sgrv.domain;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author marai
@@ -13,6 +15,7 @@ public class Bodega {
     private int numBodega;
     private String direccion;
     private String ciudad;
+    private ArrayList<Vehiculo> vehiculos;
 
     public Bodega(int numBodega, String direccion, String ciudad) {
         this.numBodega = numBodega;
@@ -44,4 +47,13 @@ public class Bodega {
         this.ciudad = ciudad;
     }
 
+    public ArrayList<Vehiculo> getVehiculos() {
+        return vehiculos;
+    }
+
+    public void setVehiculos(ArrayList<Vehiculo> vehiculos) {
+        this.vehiculos = vehiculos;
+    }
+
+    
 }

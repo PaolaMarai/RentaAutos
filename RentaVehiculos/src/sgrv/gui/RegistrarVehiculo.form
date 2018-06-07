@@ -198,7 +198,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Precio:"/>
+        <Property name="text" type="java.lang.String" value="Precio(dia):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtnumMotor">
@@ -269,12 +269,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="numPasajeros:"/>
+        <Property name="text" type="java.lang.String" value="No. Pasajeros:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Num.Cilindros:"/>
+        <Property name="text" type="java.lang.String" value="No.Cilindros:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtnumPasajeros">

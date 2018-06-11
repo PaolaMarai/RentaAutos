@@ -5,7 +5,7 @@
  */
 package sgrv.gui;
 
-import javafx.scene.control.Alert;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import sgrv.dao.VehiculoDAO;
 import sgrv.domain.Vehiculo;
@@ -14,8 +14,7 @@ import sgrv.domain.Vehiculo;
  * @author Cesar Diaz
  */
 public class RegistrarVehiculo extends javax.swing.JInternalFrame {
-
-    public RegistrarVehiculo() {
+       public RegistrarVehiculo() {
         initComponents();
     }
     
@@ -61,13 +60,28 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
          errorMensaje();
          return false;
      }
-     
+    VehiculoDAO consulta= new VehiculoDAO();
+    int motor = Integer.valueOf(this.txtnumMotor.getText());
+    ArrayList<Vehiculo> lista;
+    lista = (ArrayList<Vehiculo>)consulta.obtenerTodos();
+    for (int i = 0; i < lista.size(); i++) {
+        Vehiculo vehiculo = (Vehiculo) lista.get(i);
+        if (vehiculo.getNumMotor() == motor){
+            errorDuplicate();
+            return false;
+        }
+    }
+
      JOptionPane.showMessageDialog(this, "Registro realizado");
      this.dispose();  
      return true;
     }
     public void errorMensaje(){
         JOptionPane.showMessageDialog(this, "Ingrese valores en todos los campos");
+    }
+    
+    public void errorDuplicate(){
+        JOptionPane.showMessageDialog(this, "Ese vehículo ya existe, por favor verifique sus datos");
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -335,7 +349,7 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void botRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botRegistrarActionPerformed
         if(validarDatos()){
             VehiculoDAO veh= new VehiculoDAO();
@@ -451,14 +465,4 @@ public class RegistrarVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtnumMotor;
     private javax.swing.JTextField txtnumPasajeros;
     // End of variables declaration//GEN-END:variables
-
-    private void Alert() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private JOptionPane JOptionPane() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

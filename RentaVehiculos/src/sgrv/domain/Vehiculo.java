@@ -37,57 +37,20 @@ public class Vehiculo {
         estado="Disponible";
     }
 
-    public Vehiculo(int numMotor, String tipo, String marca, int numPasajeros, float precio, String locacion) {
+    public Vehiculo(int numMotor, String tipo, String marca, String color, String modelo, int numPasajeros, float precio, String locacion) {
         this.numMotor = numMotor;
         this.tipo = tipo;
         this.marca = marca;
+        this.color = color;
+        this.modelo = modelo;
         this.numPasajeros = numPasajeros;
         this.precio = precio;
         this.locacion = locacion;
     }
 
+   
+
     public Vehiculo(){
-        
-    }
-    
-    public void setNumMotor(int numMotor) {
-        this.numMotor = numMotor;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public void setNumPasajeros(int numPasajeros) {
-        this.numPasajeros = numPasajeros;
-    }
-
-    public void setNumCilindros(int numCilindros) {
-        this.numCilindros = numCilindros;
-    }
-
-    public void setPrecio(float precio) {
-        this.precio = precio;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public void setKilometraje(float kilometraje) {
-        this.kilometraje = kilometraje;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
     }
 
     public int getNumMotor() {
@@ -96,18 +59,6 @@ public class Vehiculo {
 
     public String getTipo() {
         return tipo;
-    }
-
-    public int getNumPasajeros() {
-        return numPasajeros;
-    }
-
-    public int getNumCilindros() {
-        return numCilindros;
-    }
-
-    public float getPrecio() {
-        return precio;
     }
 
     public String getMarca() {
@@ -130,20 +81,72 @@ public class Vehiculo {
         return matricula;
     }
 
-    public String getEstado() {
-        return estado;
+    public int getNumPasajeros() {
+        return numPasajeros;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public int getNumCilindros() {
+        return numCilindros;
+    }
+
+    public float getPrecio() {
+        return precio;
+    }
+
+    public String getEstado() {
+        return estado;
     }
 
     public String getLocacion() {
         return locacion;
     }
 
+    public void setNumMotor(int numMotor) {
+        this.numMotor = numMotor;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setKilometraje(float kilometraje) {
+        this.kilometraje = kilometraje;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public void setNumPasajeros(int numPasajeros) {
+        this.numPasajeros = numPasajeros;
+    }
+
+    public void setNumCilindros(int numCilindros) {
+        this.numCilindros = numCilindros;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public void setLocacion(String locacion) {
         this.locacion = locacion;
     }
-
+   
 }

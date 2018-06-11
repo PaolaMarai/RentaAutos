@@ -181,20 +181,22 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
         return ret;
     }
    public void llenarTabla(ArrayList lista){
+       
        if(! lista.isEmpty()){
         try{
             DefaultTableModel modelo = (DefaultTableModel)jTablaResultados.getModel();
+            modelo.setRowCount(0);
             Object[] fila = new Object[modelo.getColumnCount()];
             for (int i = 0; i < lista.size(); i++) {
                 Vehiculo vehiculo = (Vehiculo) lista.get(i);
                 fila[0] = vehiculo.getNumMotor();
                 fila[1] = vehiculo.getTipo();
-                fila [2] = vehiculo.getModelo();
-                fila [3] = vehiculo.getMarca();
-                fila [4] = vehiculo.getColor();
-                fila [5] = vehiculo.getNumPasajeros();
-                fila [6] = vehiculo.getPrecio();
-                fila [7] = vehiculo.getLocacion();
+                fila[2] = vehiculo.getModelo();
+                fila[3] = vehiculo.getMarca();
+                fila[4] = vehiculo.getColor();
+                fila[5] = vehiculo.getNumPasajeros();
+                fila[6] = vehiculo.getPrecio();
+                fila[7] = vehiculo.getLocacion();
                 modelo.addRow(fila);
                }
            }catch(NullPointerException e){
@@ -206,7 +208,6 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
         }
    }
    
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonFiltrar;
@@ -217,6 +218,10 @@ public class ConsultaVehiculo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaResultados;
     // End of variables declaration//GEN-END:variables
+
+    private int JtablegetRowCount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }
